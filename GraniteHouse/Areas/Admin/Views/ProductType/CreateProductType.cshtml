@@ -1,0 +1,24 @@
+﻿@model GraniteHouse.Models.ProductType
+
+@{
+    ViewData["Title"] = "CreateProductType";
+}
+
+<h1>Create Product Type</h1>
+
+<hr />
+
+<div class="jumbotron">
+    <form asp-action="CreateProductType" method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="Name" class="col-form-label"></label>
+            <input asp-for="Name" class="form-control form-control-sm col-5" placeholder="Enter Product Type" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-outline-primary">Create</button>
+        <a asp-action="Index" class="btn btn-info btn-sm">Go Back To List</a>
+
+    </form>
+
+</div>
