@@ -3,8 +3,6 @@
     ViewData["Title"] = "Index";
 }
 
-
-
 <div class="row">
     <div class="col-6 text-info">
         <h1>Product Type</h1>
@@ -29,7 +27,8 @@
             {
                 <tr>
                     <td>@p.Name</td>
-                    <td><a class="btn btn-danger btn-sm" asp-action="" asp-route-id="@p.Id">Delete</a></td>
+                    <partial name="_TableButtonsPartial" model="@p.Id" />
+                    @*<td><a class="btn btn-danger btn-sm" asp-action="" asp-route-id="@p.Id">Delete</a></td>*@
                 </tr>
             }
         </tbody>

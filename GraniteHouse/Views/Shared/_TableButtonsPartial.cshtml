@@ -1,0 +1,11 @@
+﻿@model int
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+<td>
+    <div class="btn-group">
+        <a class="btn btn-success btn-sm" href="@Url.Action("Edit/" + Model)">Edit</a>
+        <a class="btn btn-danger btn-sm" href="@Url.Action("Delete/" + Model)">Delete</a>
+    </div>
+</td>
