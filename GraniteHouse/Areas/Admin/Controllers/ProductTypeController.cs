@@ -50,5 +50,55 @@ namespace GraniteHouse.Areas.Admin.Controllers
             return RedirectToAction("Index");
         }
 
+        // GET: Edit Action Method for Product Type
+
+        public IActionResult Edit(int id)
+        {
+            using (_db)
+            {
+                var productType = _db.ProductTypes.Find(id);
+                if (productType == null)
+                {
+                    return NotFound();
+                }
+                return View(productType);
+            }
+        }
+
+        // Post: Edit Action Method To Update Product Type
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id, ProductType productType)
+        {
+            if (id != productType.Id)
+            {
+                return NotFound();
+            }
+            if (!ModelState.IsValid)
+            {
+                return View(productType);
+            }
+            using (_db)
+            {
+                _db.ProductTypes.Update(productType);
+                await _db.SaveChangesAsync();
+            }
+            return RedirectToAction("Index");
+        }
+
+        // GET: Detail Action Method for Product Type
+
+        public IActionResult Details(int id)
+        {
+            using (_db)
+            {
+                var productType = _db.ProductTypes.Find(id);
+                if (productType == null)
+                {
+                    return NotFound();
+                }
+                return View(productType);
+            }
+        }
     }
 }
