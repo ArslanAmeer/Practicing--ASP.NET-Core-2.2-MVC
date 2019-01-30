@@ -100,5 +100,34 @@ namespace GraniteHouse.Areas.Admin.Controllers
                 return View(productType);
             }
         }
+
+        // GET: Delete Action Method for Product Type
+
+        public IActionResult Delete(int id)
+        {
+            using (_db)
+            {
+                var productType = _db.ProductTypes.Find(id);
+                if (productType == null)
+                {
+                    return NotFound();
+                }
+                return View(productType);
+            }
+        }
+
+        // Post: Edit Action Method To Update Product Type
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            using (_db)
+            {
+                _db.ProductTypes.Remove(await _db.ProductTypes.FindAsync(id));
+                await _db.SaveChangesAsync();
+            }
+            return RedirectToAction("Index");
+        }
+
     }
 }
