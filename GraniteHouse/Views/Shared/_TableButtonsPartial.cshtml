@@ -5,7 +5,7 @@
 
 <td>
     <div class="btn-group">
-        <a class="btn btn-success btn-sm" href="@Url.Action("Edit/" + Model)"><span class="far fa-edit"></span></a>
-        <a class="btn btn-danger btn-sm" href="@Url.Action("Delete/" + Model)"><span class="far fa-trash-alt"></span></a>
+        <a class="btn btn-success btn-sm" asp-action="Edit" asp-route-id="@Model"><span class="far fa-edit"></span></a>
+        <a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@Model"><span class="far fa-trash-alt"></span></a>
     </div>
 </td>
